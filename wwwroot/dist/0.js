@@ -45,7 +45,7 @@ module.exports = (__webpack_require__(0))(77);
 /***/ 44:
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Test Page</h1>\r\n\r\n<p>This component is testing a view.</p>\r\n\r\n<form action=\"/Spotify/SearchForAlbum\" method=\"get\">\r\n    <input type=\"text\" name=\"album\" placeholder=\"album name\"/>\r\n    <input type=\"submit\" value=\"Search\" />\r\n</form>\r\n<div>\r\n    <label>Album Search</label>\r\n    <input data-bind=\"value: albumName\"/>\r\n    <button data-bind=\"click: callAPI\">Search For Album</button>\r\n</div>\r\n\r\n<div data-bind=\"foreach: albums\">\r\n    <h3>Album Title: <span data-bind=\"text: name\"></span></h3>\r\n</div>"
+module.exports = "<h1>Test Page</h1>\r\n\r\n<p>This component is testing a view.</p>\r\n\r\n\r\n<div>\r\n    <label>Album Search</label>\r\n    <input data-bind=\"value: albumName\"/>\r\n    <button data-bind=\"click: callAPI\">Search For Album</button>\r\n</div>\r\n\r\n<div data-bind=\"foreach: albums\">\r\n    <h3>Album Title: <span data-bind=\"text: name\"></span></h3>\r\n    <h3 data-bind=\"foreach: artists\">By: <span data-bind=\"text: name\"></span></h3>\r\n    <img style=\"height: 300px; width: 300px;\" data-bind=\"attr: {src: images[1].url}\" />\r\n</div>\r\n"
 
 /***/ })
 

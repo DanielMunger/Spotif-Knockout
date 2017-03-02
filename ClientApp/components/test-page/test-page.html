@@ -2,10 +2,7 @@
 
 <p>This component is testing a view.</p>
 
-<form action="/Spotify/SearchForAlbum" method="get">
-    <input type="text" name="album" placeholder="album name"/>
-    <input type="submit" value="Search" />
-</form>
+
 <div>
     <label>Album Search</label>
     <input data-bind="value: albumName"/>
@@ -14,4 +11,6 @@
 
 <div data-bind="foreach: albums">
     <h3>Album Title: <span data-bind="text: name"></span></h3>
+    <h3 data-bind="foreach: artists">By: <span data-bind="text: name"></span></h3>
+    <img style="height: 300px; width: 300px;" data-bind="attr: {src: images[1].url}" />
 </div>
