@@ -27,7 +27,7 @@ namespace AspKnockout.Models
         public AlbumQuery GetAlbum(string album)
         {
             var client = new RestClient("https://api.spotify.com/v1/");
-            var request = new RestRequest("search?q="+album, Method.GET);
+            var request = new RestRequest("search?type=album&q="+album, Method.GET);
             var response = new RestResponse();
 
             Task.Run(async () =>
@@ -35,7 +35,7 @@ namespace AspKnockout.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
             AlbumQuery jsonResponse = JsonConvert.DeserializeObject<AlbumQuery>(response.Content);
-            Console.WriteLine(jsonResponse);
+            Debug.WriteLine(jsonResponse);
             return jsonResponse;
         }
     }
