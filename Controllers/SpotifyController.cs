@@ -9,9 +9,10 @@ using AspKnockout.Models;
 
 namespace AspKnockout.Controllers
 {
-    //[Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class SpotifyController : Controller
     {
+        [HttpGet("{album}")]
         public AlbumQuery SearchForAlbum(string album)
         {
             SpotifyAPI api = new SpotifyAPI();
