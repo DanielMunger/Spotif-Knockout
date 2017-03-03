@@ -10,7 +10,9 @@
 </div>
 
 <div data-bind="foreach: albums">
-    <h3>Album Title: <span data-bind="text: name"></span></h3>
-    <h3 data-bind="foreach: artists">By: <span data-bind="text: name"></span></h3>
-    <img style="height: 300px; width: 300px;" data-bind="attr: {src: images[1].url}" />
+    <a data-bind="attr: {href:'/album-details/' + id}">
+        <h3>Album Title:<span data-bind="text: name"></span></h3>
+    </a>
+        <h3 data-bind="foreach: artists">By: <span data-bind="text: name"></span></h3>
+        <img style="height: 300px; width: 300px;" data-bind="attr: {src: images[1].url}" />
 </div>

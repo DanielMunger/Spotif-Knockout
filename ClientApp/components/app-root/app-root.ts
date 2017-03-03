@@ -8,7 +8,9 @@ const routes: Route[] = [
     { url: '',              params: { page: 'home-page' } },
     { url: 'counter',       params: { page: 'counter-example' } },
     { url: 'fetch-data', params: { page: 'fetch-data' } },
-    { url: 'test-page', params: { page: 'test-page' } }
+    // Import pages here (part 1):
+    { url: 'test-page', params: { page: 'test-page' } },
+    { url: 'album-details/{id}', params: { page: 'album-details' } }
 ];
 
 class AppRootViewModel {
@@ -28,7 +30,10 @@ class AppRootViewModel {
         ko.components.register('home-page', require('bundle-loader?lazy!../home-page/home-page'));
         ko.components.register('counter-example', require('bundle-loader?lazy!../counter-example/counter-example'));
         ko.components.register('fetch-data', require('bundle-loader?lazy!../fetch-data/fetch-data'));
+
+        // Import pages here (part 2):
         ko.components.register('test-page', require('bundle-loader?lazy!../test-page/test-page'));
+        ko.components.register('album-details', require('bundle-loader?lazy!../album-details/album-details'));
     }
 
     // To support hot module replacement, this method unregisters the router and KO components.

@@ -81,7 +81,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a6d98c2dc7e4f35a15d5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "940b01188b1ff1b0c8a7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -663,7 +663,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		4: 0
+/******/ 		5: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -779,7 +779,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(35)(__webpack_require__.s = 35);
+/******/ 	return hotCreateRequire(36)(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -798,7 +798,7 @@ module.exports = (__webpack_require__(0))(78);
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)();
+exports = module.exports = __webpack_require__(18)();
 // imports
 
 
@@ -1011,11 +1011,11 @@ module.exports = Html5Entities;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(28);
+__webpack_require__(29);
 var ko = __webpack_require__(1);
 __webpack_require__(12);
 var app_root_1 = __webpack_require__(9);
-var createHistory = __webpack_require__(34).createBrowserHistory;
+var createHistory = __webpack_require__(35).createBrowserHistory;
 // Load and register the <app-root> component
 ko.components.register('app-root', app_root_1.default);
 // Tell Knockout to start up an instance of your application
@@ -1043,7 +1043,7 @@ var options = {
   name: ''
 };
 if (true) {
-  var querystring = __webpack_require__(23);
+  var querystring = __webpack_require__(24);
   var overrides = querystring.parse(__resourceQuery.slice(1));
   if (overrides.path) options.path = overrides.path;
   if (overrides.timeout) options.timeout = overrides.timeout;
@@ -1163,11 +1163,11 @@ if (typeof window !== 'undefined') {
 }
 
 function createReporter() {
-  var strip = __webpack_require__(26);
+  var strip = __webpack_require__(27);
 
   var overlay;
   if (typeof document !== 'undefined' && options.overlay) {
-    overlay = __webpack_require__(29);
+    overlay = __webpack_require__(30);
   }
 
   var styles = {
@@ -1220,7 +1220,7 @@ function createReporter() {
   };
 }
 
-var processUpdate = __webpack_require__(30);
+var processUpdate = __webpack_require__(31);
 
 var customHandler;
 var subscribeAllHandler;
@@ -1285,7 +1285,7 @@ if (module) {
   };
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, "?path=%2F__webpack_hmr", __webpack_require__(31)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, "?path=%2F__webpack_hmr", __webpack_require__(32)(module)))
 
 /***/ }),
 /* 6 */
@@ -1502,7 +1502,9 @@ var routes = [
     { url: '', params: { page: 'home-page' } },
     { url: 'counter', params: { page: 'counter-example' } },
     { url: 'fetch-data', params: { page: 'fetch-data' } },
-    { url: 'test-page', params: { page: 'test-page' } }
+    // Import pages here (part 1):
+    { url: 'test-page', params: { page: 'test-page' } },
+    { url: 'album-details/{id}', params: { page: 'album-details' } }
 ];
 var AppRootViewModel = (function () {
     function AppRootViewModel(params) {
@@ -1514,10 +1516,12 @@ var AppRootViewModel = (function () {
         // to be split into separate files that are then loaded on demand.
         // For docs, see https://github.com/webpack/bundle-loader
         ko.components.register('nav-menu', nav_menu_1.default);
-        ko.components.register('home-page', __webpack_require__(15));
-        ko.components.register('counter-example', __webpack_require__(13));
-        ko.components.register('fetch-data', __webpack_require__(14));
-        ko.components.register('test-page', __webpack_require__(16));
+        ko.components.register('home-page', __webpack_require__(16));
+        ko.components.register('counter-example', __webpack_require__(14));
+        ko.components.register('fetch-data', __webpack_require__(15));
+        // Import pages here (part 2):
+        ko.components.register('test-page', __webpack_require__(17));
+        ko.components.register('album-details', __webpack_require__(13));
     }
     // To support hot module replacement, this method unregisters the router and KO components.
     // In production scenarios where hot module replacement is disabled, this would not be invoked.
@@ -1530,7 +1534,7 @@ var AppRootViewModel = (function () {
     };
     return AppRootViewModel;
 }());
-exports.default = { viewModel: AppRootViewModel, template: __webpack_require__(24) };
+exports.default = { viewModel: AppRootViewModel, template: __webpack_require__(25) };
 
 
 /***/ }),
@@ -1549,7 +1553,7 @@ var NavMenuViewModel = (function () {
     }
     return NavMenuViewModel;
 }());
-exports.default = { viewModel: NavMenuViewModel, template: __webpack_require__(25) };
+exports.default = { viewModel: NavMenuViewModel, template: __webpack_require__(26) };
 
 
 /***/ }),
@@ -1560,8 +1564,8 @@ exports.default = { viewModel: NavMenuViewModel, template: __webpack_require__(2
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var ko = __webpack_require__(1);
-var $ = __webpack_require__(32);
-var crossroads = __webpack_require__(33);
+var $ = __webpack_require__(33);
+var crossroads = __webpack_require__(34);
 // This module configures crossroads.js, a routing library. If you prefer, you
 // can use any other routing library (or none at all) as Knockout is designed to
 // compose cleanly with external libraries.
@@ -1647,8 +1651,8 @@ ko.components.loaders.unshift({
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function(cb) {
-	__webpack_require__.e/* require.ensure */(3).then((function(require) {
-		cb(__webpack_require__(36));
+	__webpack_require__.e/* require.ensure */(2).then((function(require) {
+		cb(__webpack_require__(37));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -1657,8 +1661,8 @@ module.exports = function(cb) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function(cb) {
-	__webpack_require__.e/* require.ensure */(1).then((function(require) {
-		cb(__webpack_require__(37));
+	__webpack_require__.e/* require.ensure */(4).then((function(require) {
+		cb(__webpack_require__(38));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -1667,8 +1671,8 @@ module.exports = function(cb) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function(cb) {
-	__webpack_require__.e/* require.ensure */(2).then((function(require) {
-		cb(__webpack_require__(38));
+	__webpack_require__.e/* require.ensure */(1).then((function(require) {
+		cb(__webpack_require__(39));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -1677,13 +1681,23 @@ module.exports = function(cb) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function(cb) {
-	__webpack_require__.e/* require.ensure */(0).then((function(require) {
-		cb(__webpack_require__(39));
+	__webpack_require__.e/* require.ensure */(3).then((function(require) {
+		cb(__webpack_require__(40));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
 /***/ }),
 /* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function(cb) {
+	__webpack_require__.e/* require.ensure */(0).then((function(require) {
+		cb(__webpack_require__(41));
+	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+}
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports) {
 
 /*
@@ -1739,19 +1753,19 @@ module.exports = function() {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
-  XmlEntities: __webpack_require__(20),
-  Html4Entities: __webpack_require__(19),
+  XmlEntities: __webpack_require__(21),
+  Html4Entities: __webpack_require__(20),
   Html5Entities: __webpack_require__(3),
   AllHtmlEntities: __webpack_require__(3)
 };
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 var HTML_ALPHA = ['apos', 'nbsp', 'iexcl', 'cent', 'pound', 'curren', 'yen', 'brvbar', 'sect', 'uml', 'copy', 'ordf', 'laquo', 'not', 'shy', 'reg', 'macr', 'deg', 'plusmn', 'sup2', 'sup3', 'acute', 'micro', 'para', 'middot', 'cedil', 'sup1', 'ordm', 'raquo', 'frac14', 'frac12', 'frac34', 'iquest', 'Agrave', 'Aacute', 'Acirc', 'Atilde', 'Auml', 'Aring', 'Aelig', 'Ccedil', 'Egrave', 'Eacute', 'Ecirc', 'Euml', 'Igrave', 'Iacute', 'Icirc', 'Iuml', 'ETH', 'Ntilde', 'Ograve', 'Oacute', 'Ocirc', 'Otilde', 'Ouml', 'times', 'Oslash', 'Ugrave', 'Uacute', 'Ucirc', 'Uuml', 'Yacute', 'THORN', 'szlig', 'agrave', 'aacute', 'acirc', 'atilde', 'auml', 'aring', 'aelig', 'ccedil', 'egrave', 'eacute', 'ecirc', 'euml', 'igrave', 'iacute', 'icirc', 'iuml', 'eth', 'ntilde', 'ograve', 'oacute', 'ocirc', 'otilde', 'ouml', 'divide', 'Oslash', 'ugrave', 'uacute', 'ucirc', 'uuml', 'yacute', 'thorn', 'yuml', 'quot', 'amp', 'lt', 'gt', 'oelig', 'oelig', 'scaron', 'scaron', 'yuml', 'circ', 'tilde', 'ensp', 'emsp', 'thinsp', 'zwnj', 'zwj', 'lrm', 'rlm', 'ndash', 'mdash', 'lsquo', 'rsquo', 'sbquo', 'ldquo', 'rdquo', 'bdquo', 'dagger', 'dagger', 'permil', 'lsaquo', 'rsaquo', 'euro', 'fnof', 'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu', 'nu', 'xi', 'omicron', 'pi', 'rho', 'sigma', 'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega', 'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu', 'nu', 'xi', 'omicron', 'pi', 'rho', 'sigmaf', 'sigma', 'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega', 'thetasym', 'upsih', 'piv', 'bull', 'hellip', 'prime', 'prime', 'oline', 'frasl', 'weierp', 'image', 'real', 'trade', 'alefsym', 'larr', 'uarr', 'rarr', 'darr', 'harr', 'crarr', 'larr', 'uarr', 'rarr', 'darr', 'harr', 'forall', 'part', 'exist', 'empty', 'nabla', 'isin', 'notin', 'ni', 'prod', 'sum', 'minus', 'lowast', 'radic', 'prop', 'infin', 'ang', 'and', 'or', 'cap', 'cup', 'int', 'there4', 'sim', 'cong', 'asymp', 'ne', 'equiv', 'le', 'ge', 'sub', 'sup', 'nsub', 'sube', 'supe', 'oplus', 'otimes', 'perp', 'sdot', 'lceil', 'rceil', 'lfloor', 'rfloor', 'lang', 'rang', 'loz', 'spades', 'clubs', 'hearts', 'diams'];
@@ -1904,7 +1918,7 @@ module.exports = Html4Entities;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 var ALPHA_INDEX = {
@@ -2065,7 +2079,7 @@ module.exports = XmlEntities;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2156,7 +2170,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2248,30 +2262,30 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(21);
-exports.encode = exports.stringify = __webpack_require__(22);
+exports.decode = exports.parse = __webpack_require__(22);
+exports.encode = exports.stringify = __webpack_require__(23);
 
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class='container-fluid'>\r\n    <div class='row'>\r\n        <div class='col-sm-3'>\r\n            <nav-menu params='route: route'></nav-menu>\r\n        </div>\r\n        <div class='col-sm-9' data-bind='component: { name: route().page, params: route }'></div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 /* 25 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class='main-nav'>\r\n        <div class='navbar navbar-inverse'>\r\n        <div class='navbar-header'>\r\n            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>\r\n                <span class='sr-only'>Toggle navigation</span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n            </button>\r\n            <a class='navbar-brand' href='/'>Aspkout</a>\r\n        </div>\r\n        <div class='clearfix'></div>\r\n        <div class='navbar-collapse collapse'>\r\n            <ul class='nav navbar-nav'>\r\n                <li>\r\n                    <p>hello</p>\r\n                    <a href='/' data-bind='css: { active: route().page === \"home-page\" }'>\r\n                        <span class='glyphicon glyphicon-home'></span> Home\r\n                    </a>\r\n                </li>\r\n                <li>\r\n                    <a href='/counter' data-bind='css: { active: route().page === \"counter-example\" }'>\r\n                        <span class='glyphicon glyphicon-education'></span> Counter\r\n                    </a>\r\n                </li>\r\n                <li>\r\n                    <a href='/fetch-data' data-bind='css: { active: route().page === \"fetch-data\" }'>\r\n                        <span class='glyphicon glyphicon-th-list'></span> Fetch data\r\n                    </a>\r\n                </li>\r\n                <li>\r\n                    <a href='/test-page' data-bind='css: { active: route().page === \"test-page\" }'>\r\n                        <span class='glyphicon glyphicon-home'></span> Test\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class='container-fluid'>\r\n    <div class='row'>\r\n        <div class='col-sm-3'>\r\n            <nav-menu params='route: route'></nav-menu>\r\n        </div>\r\n        <div class='col-sm-9' data-bind='component: { name: route().page, params: route }'></div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 /* 26 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class='main-nav'>\r\n        <div class='navbar navbar-inverse'>\r\n        <div class='navbar-header'>\r\n            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>\r\n                <span class='sr-only'>Toggle navigation</span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n            </button>\r\n            <a class='navbar-brand' href='/'>Aspkout</a>\r\n        </div>\r\n        <div class='clearfix'></div>\r\n        <div class='navbar-collapse collapse'>\r\n            <ul class='nav navbar-nav'>\r\n                <li>\r\n                    <p>hello</p>\r\n                    <a href='/' data-bind='css: { active: route().page === \"home-page\" }'>\r\n                        <span class='glyphicon glyphicon-home'></span> Home\r\n                    </a>\r\n                </li>\r\n                <li>\r\n                    <a href='/counter' data-bind='css: { active: route().page === \"counter-example\" }'>\r\n                        <span class='glyphicon glyphicon-education'></span> Counter\r\n                    </a>\r\n                </li>\r\n                <li>\r\n                    <a href='/fetch-data' data-bind='css: { active: route().page === \"fetch-data\" }'>\r\n                        <span class='glyphicon glyphicon-th-list'></span> Fetch data\r\n                    </a>\r\n                </li>\r\n                <li>\r\n                    <a href='/test-page' data-bind='css: { active: route().page === \"test-page\" }'>\r\n                        <span class='glyphicon glyphicon-home'></span> Test\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2284,7 +2298,7 @@ module.exports = function (str) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 /*
@@ -2536,7 +2550,7 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -2545,7 +2559,7 @@ function updateLink(linkElement, obj) {
 var content = __webpack_require__(2);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(27)(content, {});
+var update = __webpack_require__(28)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(true) {
@@ -2562,7 +2576,7 @@ if(true) {
 }
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*eslint-env browser*/
@@ -2606,7 +2620,7 @@ var colors = {
 };
 ansiHTML.setColors(colors);
 
-var Entities = __webpack_require__(18).AllHtmlEntities;
+var Entities = __webpack_require__(19).AllHtmlEntities;
 var entities = new Entities();
 
 exports.showProblems =
@@ -2647,7 +2661,7 @@ function problemType (type) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -2785,31 +2799,31 @@ module.exports = function(hash, moduleMap, options) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(185);
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(5);
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(73);
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(76);
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);

@@ -19,5 +19,13 @@ namespace AspKnockout.Controllers
             AlbumQuery returnedAlbum = api.GetAlbum(album);
             return returnedAlbum;
         }
+        [HttpGet("{id}")]
+        public AlbumDetails GetAlbumDetails(string id)
+        {
+            SpotifyAPI api = new SpotifyAPI();
+            AlbumDetails returnedAlbum = api.GetAlbumDetails(id);
+            return returnedAlbum;
+        }
     }
+    
 }

@@ -1,7 +1,11 @@
 ﻿import * as ko from 'knockout';
 import 'isomorphic-fetch';
-
+import { Route } from '../../router';
 // Interfaces for JSON spotify data
+
+interface NavMenuParams {
+    route: KnockoutObservable<Route>;
+}
 
 interface ExternalUrls {
     spotify: string;
@@ -53,12 +57,18 @@ interface AlbumQuery {
 // ViewModel
 
 class TestPageViewModel {
+    public route: KnockoutObservable<Route>;
+
     albumQuery = ko.observable<AlbumQuery>();
     albums = ko.observable<Item[]>();
     albumName = ko.observable<string>();
 
-    //constructor() {
-    //}
+    constructor(params: NavMenuParams) {
+        // This viewmodel doesn't do anything except pass through the 'route' parameter to the view.
+        // You could remove this viewmodel entirely, and define 'nav-menu' as a template-only component.
+        // But in most apps, you'll want some viewmodel logic to determine what navigation options appear.
+        this.route = params.route;
+    }
 
     public callAPI() {
         console.log("called function");
@@ -68,7 +78,9 @@ class TestPageViewModel {
             .then(data => {
                 console.log("successful response from api.");
                 this.albumQuery(data);
+                
                 this.albums(data["albums"]["items"]);
+                
             });
     }
 

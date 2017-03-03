@@ -38,5 +38,20 @@ namespace AspKnockout.Models
             Debug.WriteLine(jsonResponse);
             return jsonResponse;
         }
+
+        public AlbumDetails GetAlbumDetails(string id)
+        {
+            var client = new RestClient("https://api.spotify.com/v1/");
+            var request = new RestRequest("albums/" + id, Method.GET);
+            var response = new RestResponse();
+
+            Task.Run(async () =>
+            {
+                response = await GetResponseContentAsync(client, request) as RestResponse;
+            }).Wait();
+            AlbumDetails jsonResponse = JsonConvert.DeserializeObject<AlbumDetails>(response.Content);
+            Debug.WriteLine(jsonResponse);
+            return jsonResponse;
+        }
     }
 }
